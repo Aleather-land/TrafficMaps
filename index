@@ -1,5 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+<script>
+const allowedParent = "https://sites.google.com/";
+
+if (window.top !== window.self) {
+    if (!document.referrer.startsWith(allowedParent)) {
+        document.body.innerHTML =
+            "<h2>This map cannot be embedded on this website.</h2>";
+        throw new Error("Unauthorised iframe");
+    }
+}
+</script>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,7 +35,8 @@
 <body>
 
     <iframe
-        src="https://maps.google.com/maps?q=Christchurch%20New%20Zealand&z=12&output=embed"
+        //src="https://maps.google.com/maps?q=Christchurch%20New%20Zealand&z=12&output=embed"
+        src="https://maps.google.com/maps?q=-43.5321,172.6362&z=13&output=embed"
         loading="lazy"
         allowfullscreen>
     </iframe>
